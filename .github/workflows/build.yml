@@ -61,10 +61,10 @@ jobs:
       fail-fast: false
       matrix:
         base_image_flavor: [main]
-        base_name: [bazzite, bazzite-deck, bazzite-nvidia, bazzite-deck-nvidia]
+        base_name: [bazzite-deck-nvidia]
         base_image_name: [kinoite, silverblue]
-        target_image_flavor: [main, asus, surface]
-        target_nvidia_flavor: [nvidia, nvidia-open]
+        target_image_flavor: [main]
+        target_nvidia_flavor: [nvidia]
         fedora_version: [42]
         include:
           - fedora_version: 42
@@ -72,22 +72,6 @@ jobs:
             is_stable_version: true
             kernel_flavor: bazzite # must match a kernel_flavor from akmods repo
             kernel_version: 6.14.6-106.bazzite.fc42.x86_64 # must match a cached version of the above flavor
-        exclude:
-          - target_image_flavor: surface
-          - base_name: bazzite
-            target_nvidia_flavor: nvidia
-          - base_name: bazzite-deck
-            target_nvidia_flavor: nvidia
-          - base_name: bazzite-deck-nvidia
-            target_nvidia_flavor: nvidia
-          - base_name: bazzite-deck-nvidia
-            target_image_flavor: asus
-          - base_name: bazzite-deck-nvidia
-            target_image_flavor: surface
-          - base_name: bazzite-deck
-            target_image_flavor: surface
-          - target_image_flavor: surface
-            target_nvidia_flavor: nvidia
     steps:
       - name: Define env.CONTAINER_TARGET
         run: |
