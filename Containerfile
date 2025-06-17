@@ -312,8 +312,6 @@ RUN --mount=type=cache,dst=/var/cache \
         rocm-hip \
         rocm-opencl \
         rocm-clinfo \
-        openxr \
-        envision-nightly \
         waydroid \
         cage \
         wlr-randr && \
