@@ -28,7 +28,7 @@ dnf5 install -y \
     /rpms/nvidia/nvidia-libXNVCtrl-5* \
     /rpms/nvidia/nvidia-settings-5* \
     /rpms/nvidia/nvidia-driver-* \
-    /rpms/nvidia/nvidia-kmod-* \
+    /rpms/nvidia/nvidia-kmod-common-* \
     /rpms/nvidia/nvidia-modprobe-5* \
     /rpms/nvidia/nvidia-persistenced-5* \
     /rpms/nvidia/xorg-x11* \
