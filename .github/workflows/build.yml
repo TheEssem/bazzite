@@ -1,7 +1,7 @@
 name: Build Bazzite
 on:
   schedule:
-    - cron: "40 4 * * 1" # 4:40 utc monday
+    - cron: "40 5 * * 1" # 5:40 utc monday
   pull_request:
     branches:
       - testing
@@ -55,16 +55,8 @@ jobs:
       fail-fast: false
       matrix:
         image:
-          - bazzite
-          - bazzite-gnome
-          - bazzite-deck
-          - bazzite-deck-gnome
           - bazzite-deck-nvidia
           - bazzite-deck-nvidia-gnome
-          - bazzite-nvidia
-          - bazzite-gnome-nvidia
-          - bazzite-nvidia-open
-          - bazzite-gnome-nvidia-open
         include:
           - fedora_version: 43
             kernel_flavor: ogc
@@ -127,7 +119,7 @@ jobs:
           fi
           # Nvidia flavor
           if [[ "$IMAGE" == *"nvidia-open" || "$IMAGE" == *"-deck-nvidia"* ]]; then
-            echo "nvidia_flavor=nvidia-open" >> "$GITHUB_OUTPUT"
+            echo "nvidia_flavor=nvidia-lts" >> "$GITHUB_OUTPUT"
           else
             echo "nvidia_flavor=nvidia-lts" >> "$GITHUB_OUTPUT"
           fi
